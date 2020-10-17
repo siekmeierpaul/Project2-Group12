@@ -19,7 +19,9 @@ base = automap_base()
 base.prepare(engine, reflect=True)
 
 # Tables to use
-one_stars = base.classes.one_star_restaurant
+one_star_restaurants = base.classes.one_star_restaurant
+two_star_restaurants = base.classes.two_star_restaurant
+three_star_restaurants = base.classes.three_star_restaurant
 
 # Flask setup
 app = Flask(__name__)
@@ -34,13 +36,28 @@ def Index():
 def Restaurants():
 
     session = Session(engine)
-    results = session.query(one_stars.name).all()
+    one_star_results = session.query(one_star_restaurants.name, one_star_restaurants.cuisine).all()
+    two_star_results = session.query(two_star_restaurants.name, two_star_restaurants.cuisine).all()
+    three_star_results = session.query(three_star_restaurants.name, three_star_restaurants.cuisine).all()
     session.close 
 
     all_restaurants = []
-    for one_star in results:
+    for name, cuisine in one_star_results:
         dict = {}
-        dict["name"] = one_star
+        dict["name"] = name
+        dict["cuisine"] = cuisine
+        all_restaurants.append(dict)
+
+    for name, cuisine in two_star_results:
+        dict = {}
+        dict["name"] = name
+        dict["cuisine"] = cuisine
+        all_restaurants.append(dict)
+
+    for name, cuisine in three_star_results:
+        dict = {}
+        dict["name"] = name
+        dict["cuisine"] = cuisine
         all_restaurants.append(dict)
 
     # Return the jsonified result. 
