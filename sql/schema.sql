@@ -31,7 +31,7 @@ CREATE TABLE two_star_restaurant (
 );
 
 CREATE TABLE three_star_restaurant (
-    "name" PK VARCHAR   ,
+    "name" VARCHAR   ,
     "year" INT   ,
     "latitude" FLOAT   ,
     "longitude" FLOAT   ,
