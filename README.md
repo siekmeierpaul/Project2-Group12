@@ -9,5 +9,5 @@ To replicate or use this site, follow these steps:
     * Import the .csv's to their corresponding tables
 
 2. Make a config.py with your postgres info, this is used for the flask server
-    * variables are "username" and "password"
+    * Variables are "username" and "password"
     
