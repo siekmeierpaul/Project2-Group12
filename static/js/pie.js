@@ -11,6 +11,7 @@ d3.json("/restaurants").then(function (data) {
 
 
 
+    Plotly.newPlot("plot", data, layout);
 });
 
 
