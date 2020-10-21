@@ -38,28 +38,43 @@ def Index():
 def Restaurants():
 
     session = Session(engine)
-    one_star_results = session.query(one_star_restaurants.name, one_star_restaurants.cuisine).all()
-    two_star_results = session.query(two_star_restaurants.name, two_star_restaurants.cuisine).all()
-    three_star_results = session.query(three_star_restaurants.name, three_star_restaurants.cuisine).all()
+    one_star_results = session.query(one_star_restaurants.name, 
+                                    one_star_restaurants.cuisine,
+                                    one_star_restaurants.latitude,
+                                    one_star_restaurants.longitude).all()
+    two_star_results = session.query(two_star_restaurants.name, 
+                                    two_star_restaurants.cuisine,
+                                    two_star_restaurants.latitude,
+                                    two_star_restaurants.longitude).all()
+    three_star_results = session.query(three_star_restaurants.name, 
+                                    three_star_restaurants.cuisine,
+                                    three_star_restaurants.latitude,
+                                    three_star_restaurants.longitude).all()
     session.close 
 
     all_restaurants = []
-    for name, cuisine in one_star_results:
+    for name, cuisine, latitude, longitude in one_star_results:
         dict = {}
         dict["name"] = name
         dict["cuisine"] = cuisine
+        dict["latitude"] = latitude
+        dict["longitude"] = longitude
         all_restaurants.append(dict)
 
-    for name, cuisine in two_star_results:
+    for name, cuisine, latitude, longitude in two_star_results:
         dict = {}
         dict["name"] = name
         dict["cuisine"] = cuisine
+        dict["latitude"] = latitude
+        dict["longitude"] = longitude
         all_restaurants.append(dict)
 
-    for name, cuisine in three_star_results:
+    for name, cuisine, latitude, longitude in three_star_results:
         dict = {}
         dict["name"] = name
         dict["cuisine"] = cuisine
+        dict["latitude"] = latitude
+        dict["longitude"] = longitude
         all_restaurants.append(dict)
 
     # Return the jsonified result. 
