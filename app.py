@@ -2,6 +2,8 @@ from flask import Flask
 from flask import render_template 
 from flask import jsonify
 
+import json
+
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -31,7 +33,7 @@ def Index():
 
     webpage = render_template("index.html")
     return webpage
-
+    
 @app.route('/restaurants')
 def Restaurants():
 
@@ -62,6 +64,7 @@ def Restaurants():
 
     # Return the jsonified result. 
     return jsonify(all_restaurants)
+
 
 
 if __name__ == '__main__':
