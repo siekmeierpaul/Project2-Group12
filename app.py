@@ -27,6 +27,7 @@ three_star_restaurants = base.classes.three_star_restaurant
 
 # Flask setup
 app = Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0 # Effectively disables page caching
 
 @app.route('/')
 def Index():
