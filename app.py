@@ -37,43 +37,49 @@ def Index():
     
 @app.route('/restaurants')
 def Restaurants():
-
+    # This route will return all restaurants including one, two and three star varieties
     session = Session(engine)
     one_star_results = session.query(one_star_restaurants.name, 
                                     one_star_restaurants.cuisine,
+                                    one_star_restaurants.url,
                                     one_star_restaurants.latitude,
                                     one_star_restaurants.longitude).all()
     two_star_results = session.query(two_star_restaurants.name, 
                                     two_star_restaurants.cuisine,
+                                    two_star_restaurants.url,
                                     two_star_restaurants.latitude,
                                     two_star_restaurants.longitude).all()
     three_star_results = session.query(three_star_restaurants.name, 
                                     three_star_restaurants.cuisine,
+                                    three_star_restaurants.url,
                                     three_star_restaurants.latitude,
                                     three_star_restaurants.longitude).all()
     session.close 
 
     all_restaurants = []
-    for name, cuisine, latitude, longitude in one_star_results:
+    for name, cuisine, url, latitude, longitude in one_star_results:
         dict = {}
         dict["name"] = name
         dict["cuisine"] = cuisine
+        dict["url"] = url
         dict["latitude"] = latitude
         dict["longitude"] = longitude
         all_restaurants.append(dict)
 
-    for name, cuisine, latitude, longitude in two_star_results:
+    for name, cuisine, url, latitude, longitude in two_star_results:
         dict = {}
         dict["name"] = name
         dict["cuisine"] = cuisine
+        dict["url"] = url
         dict["latitude"] = latitude
         dict["longitude"] = longitude
         all_restaurants.append(dict)
 
-    for name, cuisine, latitude, longitude in three_star_results:
+    for name, cuisine, url, latitude, longitude in three_star_results:
         dict = {}
         dict["name"] = name
         dict["cuisine"] = cuisine
+        dict["url"] = url
         dict["latitude"] = latitude
         dict["longitude"] = longitude
         all_restaurants.append(dict)
@@ -81,7 +87,77 @@ def Restaurants():
     # Return the jsonified result. 
     return jsonify(all_restaurants)
 
+@app.route('/one-star')
+def OneStar():
+    # This route returns just the one star restaurants
+    session = Session(engine)
+    one_star_results = session.query(one_star_restaurants.name, 
+                                    one_star_restaurants.cuisine,
+                                    one_star_restaurants.url,
+                                    one_star_restaurants.latitude,
+                                    one_star_restaurants.longitude).all()
+    session.close 
 
+    restaurants = []
+    for name, cuisine, url, latitude, longitude in one_star_results:
+        dict = {}
+        dict["name"] = name
+        dict["cuisine"] = cuisine
+        dict["url"] = url
+        dict["latitude"] = latitude
+        dict["longitude"] = longitude
+        restaurants.append(dict)
+
+    # Return the jsonified result. 
+    return jsonify(restaurants)
+
+@app.route('/two-star')
+def TwoStar():
+    # This route returns just the two star restaurants
+    session = Session(engine)
+    two_star_results = session.query(two_star_restaurants.name, 
+                                    two_star_restaurants.cuisine,
+                                    two_star_restaurants.url,
+                                    two_star_restaurants.latitude,
+                                    two_star_restaurants.longitude).all()
+    session.close 
+
+    restaurants = []
+    for name, cuisine, url, latitude, longitude in two_star_results:
+        dict = {}
+        dict["name"] = name
+        dict["cuisine"] = cuisine
+        dict["url"] = url
+        dict["latitude"] = latitude
+        dict["longitude"] = longitude
+        restaurants.append(dict)
+
+    # Return the jsonified result. 
+    return jsonify(restaurants)
+
+@app.route('/three-star')
+def ThreeStar():
+    # This route returns just the thee star restaurants
+    session = Session(engine)
+    three_star_results = session.query(three_star_restaurants.name, 
+                                    three_star_restaurants.cuisine,
+                                    three_star_restaurants.url,
+                                    three_star_restaurants.latitude,
+                                    three_star_restaurants.longitude).all()
+    session.close 
+
+    restaurants = []
+    for name, cuisine, url, latitude, longitude in three_star_results:
+        dict = {}
+        dict["name"] = name
+        dict["cuisine"] = cuisine
+        dict["url"] = url
+        dict["latitude"] = latitude
+        dict["longitude"] = longitude
+        restaurants.append(dict)
+
+    # Return the jsonified result. 
+    return jsonify(restaurants)
 
 if __name__ == '__main__':
     app.run(debug=True)    
