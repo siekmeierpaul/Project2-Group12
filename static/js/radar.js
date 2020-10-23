@@ -43,15 +43,23 @@ function DrawRadar()
                 var pricesThree = Object.keys(threeStars);
                 var threeCounts = Object.values(threeStars); 
 
-                // Check 
-                for(var i = 0; i < three.length; i++) {
-                    var fixed = {};
-                    
-                }
-
+                console.log(oneStars);
+                console.log(twoStars);
+                console.log(threeStars);
                 console.log(pricesOne);
                 console.log(pricesTwo);
                 console.log(pricesThree);
+                console.log(oneCounts);
+                console.log(twoCounts);
+                console.log(threeCounts);
+
+                // Remove N/A 
+                pricesOne.pop();
+                oneCounts.pop();
+                twoCounts.pop();
+                threeCounts.pop();
+                // threeCounts.push(0);  // noticed that three star restaurants did not have any '$' restaurants 
+                console.log(pricesOne);
                 console.log(oneCounts);
                 console.log(twoCounts);
                 console.log(threeCounts);
