@@ -13,6 +13,7 @@ CREATE TABLE one_star_restaurant (
     "cuisine" VARCHAR   ,
     "price" VARCHAR   ,
     "url" VARCHAR   ,
+    "starRating" VARCHAR   ,
     PRIMARY KEY (name, region)
 );
 
@@ -27,6 +28,7 @@ CREATE TABLE two_star_restaurant (
     "cuisine" VARCHAR   ,
     "price" VARCHAR   ,
     "url" VARCHAR   ,
+    "starRating" VARCHAR   ,
   	PRIMARY KEY (name, region)
 );
 
@@ -41,6 +43,7 @@ CREATE TABLE three_star_restaurant (
     "cuisine" VARCHAR   ,
     "price" VARCHAR   ,
     "url" VARCHAR  ,
+    "starRating" VARCHAR  ,
 	PRIMARY KEY (name, region)   
 );
 

@@ -42,44 +42,50 @@ def Restaurants():
     one_star_results = session.query(one_star_restaurants.name, 
                                     one_star_restaurants.cuisine,
                                     one_star_restaurants.url,
+                                    one_star_restaurants.starRating,
                                     one_star_restaurants.latitude,
                                     one_star_restaurants.longitude).all()
     two_star_results = session.query(two_star_restaurants.name, 
                                     two_star_restaurants.cuisine,
                                     two_star_restaurants.url,
+                                    two_star_restaurants.starRating,
                                     two_star_restaurants.latitude,
                                     two_star_restaurants.longitude).all()
     three_star_results = session.query(three_star_restaurants.name, 
                                     three_star_restaurants.cuisine,
                                     three_star_restaurants.url,
+                                    three_star_restaurants.starRating,
                                     three_star_restaurants.latitude,
                                     three_star_restaurants.longitude).all()
     session.close 
 
     all_restaurants = []
-    for name, cuisine, url, latitude, longitude in one_star_results:
+    for name, cuisine, url, starRating, latitude, longitude in one_star_results:
         dict = {}
         dict["name"] = name
         dict["cuisine"] = cuisine
         dict["url"] = url
+        dict["starRating"] = starRating
         dict["latitude"] = latitude
         dict["longitude"] = longitude
         all_restaurants.append(dict)
 
-    for name, cuisine, url, latitude, longitude in two_star_results:
+    for name, cuisine, url, starRating, latitude, longitude in two_star_results:
         dict = {}
         dict["name"] = name
         dict["cuisine"] = cuisine
         dict["url"] = url
+        dict["starRating"] = starRating
         dict["latitude"] = latitude
         dict["longitude"] = longitude
         all_restaurants.append(dict)
 
-    for name, cuisine, url, latitude, longitude in three_star_results:
+    for name, cuisine, url, starRating, latitude, longitude in three_star_results:
         dict = {}
         dict["name"] = name
         dict["cuisine"] = cuisine
         dict["url"] = url
+        dict["starRating"] = starRating
         dict["latitude"] = latitude
         dict["longitude"] = longitude
         all_restaurants.append(dict)
@@ -93,16 +99,18 @@ def OneStar():
     session = Session(engine)
     one_star_results = session.query(one_star_restaurants.name, 
                                     one_star_restaurants.cuisine,
+                                    one_star_restaurants.price,
                                     one_star_restaurants.url,
                                     one_star_restaurants.latitude,
                                     one_star_restaurants.longitude).all()
     session.close 
 
     restaurants = []
-    for name, cuisine, url, latitude, longitude in one_star_results:
+    for name, cuisine, price, url, latitude, longitude in one_star_results:
         dict = {}
         dict["name"] = name
         dict["cuisine"] = cuisine
+        dict["price"] = price
         dict["url"] = url
         dict["latitude"] = latitude
         dict["longitude"] = longitude
@@ -117,16 +125,18 @@ def TwoStar():
     session = Session(engine)
     two_star_results = session.query(two_star_restaurants.name, 
                                     two_star_restaurants.cuisine,
+                                    two_star_restaurants.price,
                                     two_star_restaurants.url,
                                     two_star_restaurants.latitude,
                                     two_star_restaurants.longitude).all()
     session.close 
 
     restaurants = []
-    for name, cuisine, url, latitude, longitude in two_star_results:
+    for name, cuisine, price, url, latitude, longitude in two_star_results:
         dict = {}
         dict["name"] = name
         dict["cuisine"] = cuisine
+        dict["price"] = price
         dict["url"] = url
         dict["latitude"] = latitude
         dict["longitude"] = longitude
@@ -141,16 +151,18 @@ def ThreeStar():
     session = Session(engine)
     three_star_results = session.query(three_star_restaurants.name, 
                                     three_star_restaurants.cuisine,
+                                    three_star_restaurants.price,
                                     three_star_restaurants.url,
                                     three_star_restaurants.latitude,
                                     three_star_restaurants.longitude).all()
     session.close 
 
     restaurants = []
-    for name, cuisine, url, latitude, longitude in three_star_results:
+    for name, cuisine, price, url, latitude, longitude in three_star_results:
         dict = {}
         dict["name"] = name
         dict["cuisine"] = cuisine
+        dict["price"] = price
         dict["url"] = url
         dict["latitude"] = latitude
         dict["longitude"] = longitude
