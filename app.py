@@ -36,7 +36,7 @@ def Index():
     return webpage
 
 @app.route('/kiosk')
-def Index():
+def Kiosk():
 
     webpage = render_template("index.html")
     return webpage
