@@ -40,7 +40,13 @@ def Kiosk():
 
     webpage = render_template("index.html")
     return webpage
-    
+
+@app.route('/cost')
+def cost():
+
+    webpage = render_template("radar.html")
+    return webpage
+
 @app.route('/restaurants')
 def Restaurants():
     # This route will return all restaurants including one, two and three star varieties
