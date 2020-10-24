@@ -32,6 +32,12 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0 # Effectively disables page caching
 @app.route('/')
 def Index():
 
+    webpage = render_template("about.html")
+    return webpage
+
+@app.route('/kiosk')
+def Index():
+
     webpage = render_template("index.html")
     return webpage
 
