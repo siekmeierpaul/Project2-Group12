@@ -23,8 +23,8 @@ function createMap(michelinStars) {
     
     //create the map object with the different options
         var myMap = L.map("map", {
-            center: [0,0],
-            zoom: 3,
+            center: [-23.5663,-46.6674],
+            zoom: 14,
             layers: [dark, michelinStars]
         });
     
