@@ -16,6 +16,9 @@
     <!-- Chartist CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
     <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
+    <!-- import chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
@@ -43,22 +46,16 @@
     </nav>
 
 
-    <style>
+    <!-- <style>
       body {
         background-image: url('https://www.bosshunting.com.au/wp-content/uploads/2020/03/4-22-1027x560.jpg');
       }
-    </style>
+    </style> -->
     
     <div class="container">
 
-      <div class="row">
-        <div class="col-md-12">
-          <h3>Title Bar</h3>
-        </div>
-      </div>
-
       <div class="row" style="height: 400px;">  
-        <div class="col-md-12" id="map"></div>         
+        <div class="col-lg-12" id="map"></div>         
       </div>
 
       <h2>Michelin Star Cuisine</h2>
@@ -68,9 +65,12 @@
           <option value="two-star">Two Star Restaurants</option>
           <option value="three-star">Three Star Restaurants</option>
       </select>
-      <div class="row" style="height: 400px;">
-          <div class="col-md-6" id="plot"><h1></div>
-          <div class="col-md-6 ct-chart"></div>
+      <div class="row w-100 p-3" style="height: 300px;">
+          <div class="col-lg-6" id="plot"><h1></div>
+          <!-- <div class="col-lg-4 ct-chart"></div> -->
+          <div class="col-lg-6">
+            <canvas id="myChart"></canvas>
+          </div>
       </div>
   
     </div>
@@ -100,6 +100,7 @@
     <script type="text/javascript" src="static/js/config.js"></script>
     <script type="text/javascript" src="static/js/pie.js"></script>
     <script type="text/javascript" src="static/js/map.js"></script>
+    <script type="text/javascript" src="static/js/radar.js"></script>
 
   </body>
 </html>
