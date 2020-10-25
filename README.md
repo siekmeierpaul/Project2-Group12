@@ -1,4 +1,4 @@
-# Michelin Restaurant
+# Michelin Restaurants
 
 Group Members:
 Rose Inglis, Michael Neustadter, Dan Evans, Paul Siekmeier
