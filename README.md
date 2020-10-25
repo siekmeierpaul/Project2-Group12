@@ -1,6 +1,15 @@
 # Project2-Group12
-Michelin Restaurants
 
+Group Members:
+Rose Inglis, Michael Neustadter, Dan Evans, Paul Siekmeier
+
+Project Subject:
+Michelin Restaurant Ratings and Details Explored
+
+Data:
+https://www.kaggle.com/jackywang529/michelin-restaurants
+
+ETL and Project Setup Instructions:
 To replicate or use this site, follow these steps:
 
 1. Build PostgreSQL database
