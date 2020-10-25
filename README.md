@@ -1,4 +1,4 @@
-# Project2-Group12
+# Michelin Restaurant
 
 Group Members:
 Rose Inglis, Michael Neustadter, Dan Evans, Paul Siekmeier
