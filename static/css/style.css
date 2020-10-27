@@ -5,3 +5,7 @@ body,
   padding: 0;
   margin: 0;
 }
+
+#DOM {
+  background-repeat: no-repeat;
+}
